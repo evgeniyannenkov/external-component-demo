@@ -1,5 +1,5 @@
 import React from 'react';
-import { compose } from 'recompose';
+import { compose, withProps } from 'recompose';
 import { connect } from 'react-redux';
 import { sendFormData } from '../../actions';
 import { Field, reduxForm, Form } from 'redux-form'
@@ -8,7 +8,7 @@ import Avatar from '@material-ui/core/Avatar';
 import CodeIcon from '@material-ui/icons/Code';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import { withPostMessageListener } from "../../utils";
+import { withStepData } from "../../utils";
 import useStyles from './styles';
 import { FORM_NAME, getFields, validate } from "./config";
 
@@ -40,6 +40,14 @@ function SignIn(props) {
 }
 export default compose(
   connect(null, { sendFormData }),
-  reduxForm({ form: FORM_NAME, validate }),
-  withPostMessageListener(),
+  withStepData(),
+  withProps(({ stepData }) => ({
+      initialValues: stepData
+    })
+  ),
+  reduxForm({
+    form: FORM_NAME,
+    enableReinitialize: true,
+    validate,
+  })
 )(SignIn);

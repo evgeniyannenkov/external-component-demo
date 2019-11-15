@@ -1,15 +1,15 @@
-import { GET_POST_MESSAGE_SUCCESS } from './actions';
+import { EXTERNAL_STEP_INITIALIZE } from '../../constants';
 
 const initialState = {
-  postMessage: {},
+  stepData: {},
 };
 
 export default function(state = initialState, {type, payload}) {
   switch (type) {
-    case GET_POST_MESSAGE_SUCCESS:
+    case EXTERNAL_STEP_INITIALIZE:
       return {
         ...state,
-        postMessage: payload.message,
+        stepData: payload,
       };
     default:
       return state
