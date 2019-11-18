@@ -1,4 +1,4 @@
-import { getFormValues, getFormMeta } from 'redux-form';
+import { getFormValues } from 'redux-form';
 import { FORM_NAME } from './components/Form/config';
 import { sendMessage } from '../../utils';
 import { OR_MESSAGE } from "../../constants";
@@ -12,7 +12,7 @@ export function sendFormData() {
     sendMessage({
       id: OR_MESSAGE,
       type: EXTERNAL_STEP_UPDATE,
-      payload: formData,
+      payload: { params: formData },
     });
     return dispatch({
       type: EXTERNAL_STEP_UPDATE_SUCCESS,

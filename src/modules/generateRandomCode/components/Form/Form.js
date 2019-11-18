@@ -1,5 +1,5 @@
 import React from 'react';
-import { compose, withProps } from 'recompose';
+import { compose } from 'recompose';
 import { connect } from 'react-redux';
 import { sendFormData } from '../../actions';
 import { Field, reduxForm, Form } from 'redux-form'
@@ -8,11 +8,11 @@ import Avatar from '@material-ui/core/Avatar';
 import CodeIcon from '@material-ui/icons/Code';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import { withStepData } from "../../utils";
+import { withInitialValues } from "../../utils";
 import useStyles from './styles';
 import { FORM_NAME, getFields, validate } from "./config";
 
-function SignIn(props) {
+function GenerateRandomCodeForm(props) {
   const {
     handleSubmit,
     sendFormData,
@@ -40,14 +40,10 @@ function SignIn(props) {
 }
 export default compose(
   connect(null, { sendFormData }),
-  withStepData(),
-  withProps(({ stepData }) => ({
-      initialValues: stepData
-    })
-  ),
+  withInitialValues(),
   reduxForm({
     form: FORM_NAME,
     enableReinitialize: true,
     validate,
   })
-)(SignIn);
+)(GenerateRandomCodeForm);
