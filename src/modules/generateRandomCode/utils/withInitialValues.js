@@ -11,7 +11,7 @@ export default function () {
     withProps(({ stepData }) => ({
         initialValues: {
           avoidAmbiguous: get(stepData, 'params.avoidAmbiguous', false),
-          codeLength: get(stepData, 'params.codeLength', "``"),
+          codeLength: get(stepData, 'params.codeLength', ''),
           includeLowerCase: get(stepData, 'params.includeLower', false),
           includeNumbers: get(stepData, 'params.includeNumbers', false),
           includeSymbols: get(stepData, 'params.includeSymbols', false),
