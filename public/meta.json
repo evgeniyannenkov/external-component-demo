@@ -1,0 +1,16 @@
+{
+  "label": "External Step template",
+  "description": "External step template description",
+  "categories": ["Logical"],
+  "tags": null,
+  "recommended": null,
+  "icon": "",
+  "iconType": "default",
+  "iconUrl": "",
+  "shape": "circle",
+  "isGatewayStep": false,
+  "publishedBy": "Eugene Annienkov",
+  "version": "0.0.1",
+  "help": "Description for step template",
+  "isExternalStep": true
+}
