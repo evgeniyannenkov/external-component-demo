@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
-const renderTextField = (props) => {
+const renderTextField = props => {
   const {
     label,
     input,
@@ -26,12 +26,7 @@ const renderTextField = (props) => {
 const renderCheckbox = ({ input, label }) => (
   <div>
     <FormControlLabel
-      control={
-        <Checkbox
-          checked={!!input.value}
-          onChange={input.onChange}
-        />
-      }
+      control={<Checkbox checked={!!input.value} onChange={input.onChange} />}
       label={label}
     />
   </div>
@@ -39,7 +34,7 @@ const renderCheckbox = ({ input, label }) => (
 
 export const FORM_NAME = 'GenerateRandomCodeForm';
 
-export const getFields = ({submit}) => ([
+export const getFields = ({ submit }) => [
   {
     variant: 'outlined',
     margin: 'normal',
@@ -88,7 +83,7 @@ export const getFields = ({submit}) => ([
     onChange: submit,
     component: renderCheckbox,
   },
-]);
+];
 
 export const validate = values => {
   const errors = {};
@@ -102,5 +97,5 @@ export const validate = values => {
   if (+codeLength < 1) {
     errors.codeLength = 'The number range must be from 1 to 256';
   }
-  return errors
+  return errors;
 };
