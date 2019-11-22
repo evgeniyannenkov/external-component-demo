@@ -12,5 +12,22 @@
   "publishedBy": "Eugene Annienkov",
   "version": "0.0.1",
   "help": "Description for step template",
-  "isExternalStep": true
+  "isExternalStep": true,
+  "data": {
+    "exits": [
+      {
+        "id": "next",
+        "label": "next",
+        "condition": ""
+      }
+    ],
+    "params": {
+      "avoidAmbiguous": false,
+      "codeLength": "",
+      "includeLowerCase": false,
+      "includeNumbers": false,
+      "includeSymbols": false,
+      "includeUpperCase": false
+    }
+  }
 }
